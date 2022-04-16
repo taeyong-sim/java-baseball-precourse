@@ -18,7 +18,6 @@ public class Score {
         this.strike = strike;
     }
 
-
     public int getTotal() {
         return total;
     }
