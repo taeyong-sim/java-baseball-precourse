@@ -63,7 +63,7 @@ public class BaseballGameController {
         }
     }
 
-    private static int askGameContinue() throws IllegalArgumentException{
+    private static int askGameContinue() throws IllegalArgumentException {
         message.printMessage(Message.MSG_ASK);
         return Integer.parseInt(input.inputNumber());
     }
@@ -72,9 +72,11 @@ public class BaseballGameController {
         int choice = askGameContinue();
 
         if(choice == NEW_GAME){
+            message.printMessage(Message.MSG_RESTART);
             initBaseballGame();
         }
         if(choice == QUIT_GAME){
+            message.printMessage(Message.MSG_END);
             state = OFF_STATE;
         }
     }

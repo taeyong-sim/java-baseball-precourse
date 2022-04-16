@@ -1,5 +1,6 @@
 package baseball.domain;
 
+import baseball.common.Message;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -12,7 +13,7 @@ public class BaseballNumber {
         this.baseballNumberList = new ArrayList<>();
     }
 
-    public BaseballNumber(String inputStr) throws IllegalArgumentException{
+    public BaseballNumber(String inputStr) {
         this.baseballNumberList = new ArrayList<>();
         if(validate(inputStr)){
             this.baseballNumberList = storeInputString(inputStr);
@@ -23,7 +24,7 @@ public class BaseballNumber {
         String regex = "^[1-9]{3}$";
 
         if(!Pattern.matches(regex, inputString)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(Message.MSG_EXCEPTION);
         }
 
         return true;
@@ -51,7 +52,7 @@ public class BaseballNumber {
 
     private void isValid(int digit){
         if(baseballNumberList.contains(digit)){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(Message.MSG_EXCEPTION);
         }
     }
 
