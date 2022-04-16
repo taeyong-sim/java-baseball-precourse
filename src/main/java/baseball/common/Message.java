@@ -1,7 +1,5 @@
 package baseball.common;
 
-import baseball.domain.BaseballNumber;
-
 public class Message {
 
     public final static String MSG_INPUT = "숫자를 입력해주세요 : ";

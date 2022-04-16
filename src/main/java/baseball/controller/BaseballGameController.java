@@ -7,7 +7,7 @@ import baseball.domain.Player;
 import baseball.domain.Score;
 import baseball.service.CompareService;
 import baseball.service.JudgeService;
-import camp.nextstep.edu.missionutils.Console;
+import baseball.ui.Input;
 
 public class BaseballGameController {
 
@@ -21,9 +21,8 @@ public class BaseballGameController {
     private static Player player;
     private static Score score;
     private static Message message;
-    private static JudgeService judgeService;
-
     private static String state;
+    private static Input input;
 
     public static void run(){
         initBaseballGame();
@@ -43,15 +42,16 @@ public class BaseballGameController {
 
     private static void inputNumber(){
         message.printMessage(Message.MSG_INPUT);
-        String input = Console.readLine();
-        player.setBaseballNumber(new BaseballNumber(input));
+        input = new Input();
+        String inputStr = input.inputNumber();
+        player.setBaseballNumber(new BaseballNumber(inputStr));
     }
 
     private static void printJudgement(){
-        CompareService compareService = new CompareService(computer.getComputerNumber(), player.getBaseballNumber());
+        CompareService compareService = new CompareService(Computer.getComputerNumber(), player.getBaseballNumber());
         score = compareService.getScore();
-        judgeService = new JudgeService();
-        String result = judgeService.judgeResult(compareService, computer.getComputerNumber(), player.getBaseballNumber());
+        JudgeService judgeService = new JudgeService();
+        String result = judgeService.judgeResult(compareService, player.getBaseballNumber());
         message.printMessage(result + "\n");
     }
 
@@ -65,7 +65,7 @@ public class BaseballGameController {
 
     private static int askGameContinue() throws IllegalArgumentException{
         message.printMessage(Message.MSG_ASK);
-        return Integer.parseInt(Console.readLine());
+        return Integer.parseInt(input.inputNumber());
     }
 
     private static void determineGame(){

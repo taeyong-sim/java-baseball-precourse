@@ -3,12 +3,10 @@ package baseball.domain;
 public class Score {
 
     private int strike;
-    private int ball;
     private int total;
 
-    public Score(int strike, int ball, int total) {
+    public Score(int strike, int total) {
         this.strike = strike;
-        this.ball = ball;
         this.total = total;
     }
 

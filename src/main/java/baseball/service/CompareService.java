@@ -5,17 +5,17 @@ import baseball.domain.Score;
 
 public class CompareService {
 
-    private BaseballNumber baseballNumber_computer;
-    private BaseballNumber baseballNumber_player;
-    private Score score;
+    private final BaseballNumber baseballNumber_computer;
+    private final BaseballNumber baseballNumber_player;
+    private final Score score;
 
     public CompareService(BaseballNumber baseballNumber_computer, BaseballNumber baseballNumber_player){
         this.baseballNumber_computer = baseballNumber_computer;
         this.baseballNumber_player = baseballNumber_player;
-        score = new Score(0,0,0);
+        score = new Score(0,0);
     }
 
-    public Score countTotal(BaseballNumber baseballNumber_computer, BaseballNumber baseballNumber_player){
+    public Score countTotal(BaseballNumber baseballNumber_player){
         int size = baseballNumber_player.getSize();
         for (int i = 0; i < size; i++) {
             int playerDigit = baseballNumber_player.getDigitNumber(i);
@@ -31,7 +31,7 @@ public class CompareService {
         }
     }
 
-    public Score countStrike(BaseballNumber baseballNumber_computer, BaseballNumber baseballNumber_player){
+    public Score countStrike(BaseballNumber baseballNumber_player){
         for (int i = 0; i < baseballNumber_player.getSize(); i++) {
             int playerDigit = baseballNumber_player.getDigitNumber(i);
             addStrike(playerDigit, score);
@@ -44,10 +44,6 @@ public class CompareService {
         if(baseballNumber_computer.getIndex(playerDigit) ==  baseballNumber_player.getIndex(playerDigit)){
             score.setStrike(score.getStrike()+1);
         }
-    }
-
-    public void setScore(Score score) {
-        this.score = score;
     }
 
     public Score getScore() {

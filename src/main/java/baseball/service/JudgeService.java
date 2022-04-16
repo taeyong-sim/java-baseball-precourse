@@ -6,10 +6,10 @@ import baseball.domain.BaseballNumber;
 
 public class JudgeService {
 
-    public String judgeResult(CompareService compareService, BaseballNumber baseballNumber_computer, BaseballNumber baseballNumber_player){
-        int total = compareService.countTotal(baseballNumber_computer, baseballNumber_player)
+    public String judgeResult(CompareService compareService, BaseballNumber baseballNumber_player){
+        int total = compareService.countTotal(baseballNumber_player)
                                   .getTotal();
-        int strike = compareService.countStrike(baseballNumber_computer, baseballNumber_player)
+        int strike = compareService.countStrike(baseballNumber_player)
                                   .getStrike();
         int ball = total - strike;
 

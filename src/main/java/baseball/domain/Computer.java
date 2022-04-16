@@ -13,7 +13,7 @@ public class Computer {
 
 	public Computer() {
 		computerNumber = new BaseballNumber();
-		this.computerNumber = generateRandomNumber();
+		computerNumber = generateRandomNumber();
 	}
 
 	private void saveRandomNumber(int digit){
