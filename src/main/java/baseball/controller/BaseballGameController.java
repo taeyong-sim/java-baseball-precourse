@@ -70,7 +70,7 @@ public class BaseballGameController {
             if(choice != 1 && choice != 2){
                 throw new IllegalArgumentException(Message.MSG_EXCEPTION);
             }
-            return Integer.parseInt(input.inputNumber());
+            return choice;
         }catch(NumberFormatException e) {
             throw new IllegalArgumentException(Message.MSG_EXCEPTION);
         }
