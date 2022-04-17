@@ -65,7 +65,15 @@ public class BaseballGameController {
 
     private static int askGameContinue() throws IllegalArgumentException {
         message.printMessage(Message.MSG_ASK);
-        return Integer.parseInt(input.inputNumber());
+        try{
+            int choice = Integer.parseInt(input.inputNumber());
+            if(choice != 1 && choice != 2){
+                throw new IllegalArgumentException(Message.MSG_EXCEPTION);
+            }
+            return Integer.parseInt(input.inputNumber());
+        }catch(NumberFormatException e) {
+            throw new IllegalArgumentException(Message.MSG_EXCEPTION);
+        }
     }
 
     private static void determineGame(){
