@@ -12,7 +12,7 @@ import java.util.Arrays;
 @DisplayName("Player class TEST")
 class PlayerTest {
 
-    Player player;
+    private Player player;
 
     @BeforeEach
     void init(){

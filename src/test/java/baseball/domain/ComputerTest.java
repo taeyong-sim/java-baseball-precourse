@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 @DisplayName("Computer Class TEST")
 class ComputerTest {
 
-    Computer computer;
+    private Computer computer;
 
     @BeforeEach
     void init(){
