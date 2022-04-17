@@ -76,4 +76,7 @@ public class BaseballNumber {
         baseballNumberList.add(digit);
     }
 
+    public List<Integer> getBaseballNumberList() {
+        return baseballNumberList;
+    }
 }
