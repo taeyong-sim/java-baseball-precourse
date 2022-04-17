@@ -16,6 +16,4 @@ public class Message {
         System.out.print(message);
     }
 
-
-
 }
