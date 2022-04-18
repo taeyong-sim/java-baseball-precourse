@@ -44,4 +44,12 @@ class BaseballNumberTest {
                 .isThrownBy(() -> new BaseballNumber("120"))
                 .withMessageMatching(Message.MSG_EXCEPTION);
     }
+
+    @DisplayName("입력값을 구성하는 숫자 중 중복 존재시 IllegalArgumentException 발생")
+    @Test
+    void duplicateDigitTest(){
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> new BaseballNumber("122"))
+                .withMessageMatching(Message.MSG_EXCEPTION);
+    }
 }
